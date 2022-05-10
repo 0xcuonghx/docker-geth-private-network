@@ -1,4 +1,4 @@
-FROM ethereum/client-go
+FROM ethereum/client-go:v1.9.25
 
 RUN apk update &&\
   apk add git nodejs bash perl

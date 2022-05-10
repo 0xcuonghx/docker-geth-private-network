@@ -1,0 +1,45 @@
+=============== May 9, 2022 (+07) ===============
+22:51:15.523114 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+22:51:15.556436 db@open opening
+22:51:15.558481 version@stat F·[] S·0B[] Sc·[]
+22:51:15.569175 db@janitor F·2 G·0
+22:51:15.569271 db@open done T·12.754828ms
+22:51:15.575484 db@close closing
+22:51:15.575748 db@close done T·262.144µs
+=============== May 9, 2022 (+07) ===============
+22:55:35.735814 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+22:55:35.736061 version@stat F·[] S·0B[] Sc·[]
+22:55:35.736092 db@open opening
+22:55:35.736178 journal@recovery F·1
+22:55:35.738521 journal@recovery recovering @1
+22:55:35.752871 memdb@flush created L0@2 N·625 S·51KiB "\x02d\xfc..\x19Ba,v432":"\xfe\x88\xcf..H\xef\xcc,v363"
+22:55:35.755241 version@stat F·[1] S·51KiB[51KiB] Sc·[0.25]
+22:55:35.810646 db@janitor F·3 G·0
+22:55:35.810691 db@open done T·74.582255ms
+22:55:38.057219 db@close closing
+22:55:38.057379 db@close done T·158.377µs
+=============== May 9, 2022 (+07) ===============
+23:00:25.256246 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:00:25.257245 version@stat F·[1] S·51KiB[51KiB] Sc·[0.25]
+23:00:25.257286 db@open opening
+23:00:25.257402 journal@recovery F·1
+23:00:25.259609 journal@recovery recovering @3
+23:00:25.273646 memdb@flush created L0@5 N·266 S·11KiB "Dat..ion,v627":"unc..own,v632"
+23:00:25.276084 version@stat F·[2] S·62KiB[62KiB] Sc·[0.50]
+23:00:25.336164 db@janitor F·4 G·0
+23:00:25.336243 db@open done T·78.930801ms
+23:00:27.539816 db@close closing
+23:00:27.539975 db@close done T·156.325µs
+=============== May 9, 2022 (+07) ===============
+23:09:32.193620 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:09:32.193904 version@stat F·[2] S·62KiB[62KiB] Sc·[0.50]
+23:09:32.193937 db@open opening
+23:09:32.194077 journal@recovery F·1
+23:09:32.196344 journal@recovery recovering @6
+23:09:32.212745 memdb@flush created L0@8 N·1 S·204B "unc..own,v894":"unc..own,v894"
+23:09:32.215180 version@stat F·[3] S·63KiB[63KiB] Sc·[0.75]
+23:09:32.272044 db@janitor F·5 G·0
+23:09:32.272104 db@open done T·78.145434ms
+=============== May 10, 2022 (+07) ===============
+08:45:49.621091 db@close closing
+08:45:49.621246 db@close done T·164.969µs

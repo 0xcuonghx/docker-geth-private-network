@@ -1,7 +1,7 @@
-FROM ethereum/client-go:v1.9.25
+FROM ethereum/client-go:v1.10.8
 
 RUN apk update &&\
-  apk add git nodejs bash perl libusb libusb-dev
+  apk add git nodejs bash perl
 
 ADD start.sh /root/start.sh
 RUN chmod +x /root/start.sh

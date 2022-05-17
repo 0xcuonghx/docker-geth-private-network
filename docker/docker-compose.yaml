@@ -1,12 +1,12 @@
 version: "2"
 services:
   bootstrap:
-    build: geth-client-v1.10.8
+    build: geth-client-v1.10.17
     restart: on-failure
     container_name: bootstrap
     hostname: bootstrap
     entrypoint: /root/start.sh
-    command: '--mine --datadir=~/.ethereum/devchain --nodekeyhex=091bd6067cb4612df85d9c1ff85cc47f259ced4d4cd99816b14f35650f59c322 --http.api "personal,eth,net,web3,miner,admin" --http.corsdomain="*" --networkid=1337 --http --http.addr="0.0.0.0" --nousb -unlock 0x633bCcD9fF70149F113C8EcE0327a426F484444F --password /root/files/password --allow-insecure-unlock'
+    command: '--mine --datadir=~/.ethereum/devchain --nodekeyhex=091bd6067cb4612df85d9c1ff85cc47f259ced4d4cd99816b14f35650f59c322 --http.api "clique,personal,eth,net,web3,miner,admin" --http.corsdomain="*" --networkid=1337 --http --http.addr="0.0.0.0" -unlock 0x633bCcD9fF70149F113C8EcE0327a426F484444F --password /root/files/password --allow-insecure-unlock'
     volumes:
       - ./files/password:/root/files/password:ro
       - ./files/poa.json:/root/files/poa.json:ro
@@ -17,7 +17,7 @@ services:
       - "30303:30303/udp"
       - "8545:8545"
   member1:
-    build: geth-client-v1.9.25
+    build: geth-client-v1.10.17
     restart: on-failure
     links:
       - bootstrap
@@ -27,11 +27,11 @@ services:
       - ./files/poa.json:/root/files/poa.json:ro
       - ./files/keystore:/root/.ethereum/devchain/keystore:rw
       - /etc/localtime:/etc/localtime:ro
-    command: '--datadir=~/.ethereum/devchain --networkid=1337 --bootnodes="enode://288b97262895b1c7ec61cf314c2e2004407d0a5dc77566877aad1f2a36659c8b698f4b56fd06c4a0c0bf007b4cfb3e7122d907da3b005fa90e724441902eb19e@XXX:30303" --nousb -unlock 0x78C8d5e84da4E89beFc501d3731c8fADA79D532e --password /root/files/password --allow-insecure-unlock --http.api "personal,eth,net,web3,miner,admin" --http.corsdomain="*" --http --http.addr="0.0.0.0" --http.port=8546'
+    command: '--datadir=~/.ethereum/devchain --networkid=1337 --bootnodes="enode://288b97262895b1c7ec61cf314c2e2004407d0a5dc77566877aad1f2a36659c8b698f4b56fd06c4a0c0bf007b4cfb3e7122d907da3b005fa90e724441902eb19e@XXX:30303" -unlock 0x78C8d5e84da4E89beFc501d3731c8fADA79D532e --password /root/files/password --allow-insecure-unlock --http.api "clique,personal,eth,net,web3,miner,admin" --http.corsdomain="*" --http --http.addr="0.0.0.0" --http.port=8546 --mine --miner.etherbase="0x78C8d5e84da4E89beFc501d3731c8fADA79D532e"'
     ports:
       - "8546:8546"
   member2:
-    build: geth-client-v1.10.8
+    build: geth-client-v1.10.17
     restart: on-failure
     links:
       - bootstrap
@@ -41,6 +41,6 @@ services:
       - ./files/poa.json:/root/files/poa.json:ro
       - ./files/keystore:/root/.ethereum/devchain/keystore:rw
       - /etc/localtime:/etc/localtime:ro
-    command: '--datadir=~/.ethereum/devchain --networkid=1337 --bootnodes="enode://288b97262895b1c7ec61cf314c2e2004407d0a5dc77566877aad1f2a36659c8b698f4b56fd06c4a0c0bf007b4cfb3e7122d907da3b005fa90e724441902eb19e@XXX:30303" --nousb --http.api "personal,eth,net,web3,miner,admin" --http.corsdomain="*" --http --http.addr="0.0.0.0" --http.port=8547'
+    command: '--datadir=~/.ethereum/devchain --networkid=1337 --bootnodes="enode://288b97262895b1c7ec61cf314c2e2004407d0a5dc77566877aad1f2a36659c8b698f4b56fd06c4a0c0bf007b4cfb3e7122d907da3b005fa90e724441902eb19e@XXX:30303" --http.api "clique,personal,eth,net,web3,miner,admin" --http.corsdomain="*" --http --http.addr="0.0.0.0" --http.port=8547'
     ports:
       - "8547:8547"

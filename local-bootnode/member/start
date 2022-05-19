@@ -1,1 +1,0 @@
-geth --bootnodes=enode://e3be3f12ba20398bc46135906e8b5058dddf29dea19be5f6b2e38bf369214a0441b7f8edc60de6893e2a91328f9a49d503efa8cd13fccede7b80277fe68c0e5b@127.0.0.1:30301 --datadir=. --networkid=28749 

@@ -1,0 +1,61 @@
+version: '2'
+services:
+  node1:
+    image: ethereum/client-go:v${GETH_VERSION}
+    volumes:
+      - ./geth-entrypoint.sh:/entrypoint.sh
+      - ./genesis.json:/genesis.json
+      - ./node1/ethereum/geth/nodekey:/root/.ethereum/geth/nodekey
+      - ./node1/ethereum/geth/static-nodes.json:/root/.ethereum/geth/static-nodes.json
+      - ./node1/ethereum/key.prv:/root/.ethereum/key.prv
+      - ./node1/ethereum/password.txt:/root/.ethereum/password.txt
+      - clef1:/root/.clef
+    entrypoint: /entrypoint.sh
+    restart: on-failure
+    ports:
+      - "127.0.0.1:10000:8545"
+
+  clef1:
+    image: ethereum/client-go:alltools-v${GETH_VERSION}
+    volumes:
+      - ./clef-entrypoint.sh:/entrypoint.sh
+      - clef1:/root/.clef
+      - ./node1/clef/rules.js:/root/.clef/rules.js
+      - ./node1/ethereum/key.prv:/root/.ethereum/key.prv
+      - ./node1/ethereum/password.txt:/root/.ethereum/password.txt
+    entrypoint: /entrypoint.sh
+    restart: on-failure
+    environment:
+      SIGNER_ADDRESS: "0xa8d1beb561E50a4998b91032CE4b79bc9179C9b4"      
+
+  node2:
+    image: ethereum/client-go:v${GETH_VERSION}
+    volumes:
+      - ./geth-entrypoint.sh:/entrypoint.sh
+      - ./genesis.json:/genesis.json
+      - ./node2/ethereum/geth/nodekey:/root/.ethereum/geth/nodekey
+      - ./node2/ethereum/geth/static-nodes.json:/root/.ethereum/geth/static-nodes.json
+      - ./node2/ethereum/key.prv:/root/.ethereum/key.prv
+      - ./node2/ethereum/password.txt:/root/.ethereum/password.txt
+      - clef2:/root/.clef
+    entrypoint: /entrypoint.sh
+    restart: on-failure
+    ports:
+      - "127.0.0.1:10001:8545"
+
+  clef2:
+    image: ethereum/client-go:alltools-v${GETH_VERSION}
+    volumes:
+      - ./clef-entrypoint.sh:/entrypoint.sh
+      - clef2:/root/.clef
+      - ./node2/clef/rules.js:/root/.clef/rules.js
+      - ./node2/ethereum/key.prv:/root/.ethereum/key.prv
+      - ./node2/ethereum/password.txt:/root/.ethereum/password.txt
+    entrypoint: /entrypoint.sh
+    restart: on-failure
+    environment:
+      SIGNER_ADDRESS: "0xb96CE52cb8AA92cbE85dba75eCd4A04b12A4d972"
+
+volumes:
+  clef1:
+  clef2:
